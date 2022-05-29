@@ -7,18 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		652D76142843E52100295B0E /* EmojiArtDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652D76132843E52100295B0E /* EmojiArtDocument.swift */; };
+		652D76172843E91000295B0E /* UtilityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652D76162843E91000295B0E /* UtilityExtensions.swift */; };
+		652D76192843E94000295B0E /* UtilityViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652D76182843E94000295B0E /* UtilityViews.swift */; };
 		65FFB7B42843BC6A00FD6B42 /* EmojiArtApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FFB7B32843BC6A00FD6B42 /* EmojiArtApp.swift */; };
-		65FFB7B62843BC6A00FD6B42 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FFB7B52843BC6A00FD6B42 /* ContentView.swift */; };
+		65FFB7B62843BC6A00FD6B42 /* EmojiArtDocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FFB7B52843BC6A00FD6B42 /* EmojiArtDocumentView.swift */; };
 		65FFB7B82843BC6F00FD6B42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65FFB7B72843BC6F00FD6B42 /* Assets.xcassets */; };
 		65FFB7BB2843BC6F00FD6B42 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65FFB7BA2843BC6F00FD6B42 /* Preview Assets.xcassets */; };
+		65FFB7C32843BCD600FD6B42 /* EmojiArtModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FFB7C22843BCD600FD6B42 /* EmojiArtModel.swift */; };
+		65FFB7C52843C14300FD6B42 /* EmojiArtModel.Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FFB7C42843C14300FD6B42 /* EmojiArtModel.Background.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		652D76132843E52100295B0E /* EmojiArtDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiArtDocument.swift; sourceTree = "<group>"; };
+		652D76162843E91000295B0E /* UtilityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityExtensions.swift; sourceTree = "<group>"; };
+		652D76182843E94000295B0E /* UtilityViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityViews.swift; sourceTree = "<group>"; };
 		65FFB7B02843BC6900FD6B42 /* EmojiArt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmojiArt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65FFB7B32843BC6A00FD6B42 /* EmojiArtApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiArtApp.swift; sourceTree = "<group>"; };
-		65FFB7B52843BC6A00FD6B42 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		65FFB7B52843BC6A00FD6B42 /* EmojiArtDocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiArtDocumentView.swift; sourceTree = "<group>"; };
 		65FFB7B72843BC6F00FD6B42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		65FFB7BA2843BC6F00FD6B42 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		65FFB7C22843BCD600FD6B42 /* EmojiArtModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiArtModel.swift; sourceTree = "<group>"; };
+		65FFB7C42843C14300FD6B42 /* EmojiArtModel.Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiArtModel.Background.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +42,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		652D76122843E50800295B0E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				652D76132843E52100295B0E /* EmojiArtDocument.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		652D76152843E8FD00295B0E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				652D76162843E91000295B0E /* UtilityExtensions.swift */,
+				652D76182843E94000295B0E /* UtilityViews.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		65FFB7A72843BC6900FD6B42 = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +78,11 @@
 		65FFB7B22843BC6900FD6B42 /* EmojiArt */ = {
 			isa = PBXGroup;
 			children = (
+				652D76152843E8FD00295B0E /* Extensions */,
 				65FFB7B32843BC6A00FD6B42 /* EmojiArtApp.swift */,
-				65FFB7B52843BC6A00FD6B42 /* ContentView.swift */,
+				65FFB7C12843BCC900FD6B42 /* Model */,
+				65FFB7B52843BC6A00FD6B42 /* EmojiArtDocumentView.swift */,
+				652D76122843E50800295B0E /* ViewModel */,
 				65FFB7B72843BC6F00FD6B42 /* Assets.xcassets */,
 				65FFB7B92843BC6F00FD6B42 /* Preview Content */,
 			);
@@ -65,6 +95,15 @@
 				65FFB7BA2843BC6F00FD6B42 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		65FFB7C12843BCC900FD6B42 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				65FFB7C22843BCD600FD6B42 /* EmojiArtModel.swift */,
+				65FFB7C42843C14300FD6B42 /* EmojiArtModel.Background.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +176,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65FFB7B62843BC6A00FD6B42 /* ContentView.swift in Sources */,
+				652D76192843E94000295B0E /* UtilityViews.swift in Sources */,
+				65FFB7B62843BC6A00FD6B42 /* EmojiArtDocumentView.swift in Sources */,
 				65FFB7B42843BC6A00FD6B42 /* EmojiArtApp.swift in Sources */,
+				652D76172843E91000295B0E /* UtilityExtensions.swift in Sources */,
+				652D76142843E52100295B0E /* EmojiArtDocument.swift in Sources */,
+				65FFB7C32843BCD600FD6B42 /* EmojiArtModel.swift in Sources */,
+				65FFB7C52843C14300FD6B42 /* EmojiArtModel.Background.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +319,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,6 +349,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
