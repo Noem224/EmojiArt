@@ -15,8 +15,8 @@ struct EmojiArtModel {
         var id: UUID
         
         let text: String
-        var x: Int
-        var y: Int
+        var x: Int // offset from the center
+        var y: Int // offset from the center
         var size: Int
         
         fileprivate init(text: String, x: Int, y: Int, size: Int) {
