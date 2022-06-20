@@ -8,7 +8,13 @@
 import SwiftUI
 
 class EmojiArtDocument: ObservableObject {
-    @Published private(set) var emojiArt: EmojiArtModel
+    @Published private(set) var emojiArt: EmojiArtModel {
+        didSet {
+            if self.background != oldValue.background {
+                fetchBackgroundImageDataIfNecessary()
+            }
+        }
+    }
     
     init() {
         emojiArt = EmojiArtModel()
@@ -17,10 +23,42 @@ class EmojiArtDocument: ObservableObject {
     var emojis: [EmojiArtModel.Emoji] { emojiArt.emojis }
     var background: EmojiArtModel.Background { emojiArt.background }
     
+    @Published var backgroundImage: UIImage?
+    @Published var backgroundImageFetchStatus = BackgroundImageFetchStatus.idle
+    
+    enum BackgroundImageFetchStatus {
+        case idle
+        case fetching
+    }
+    
+    private func fetchBackgroundImageDataIfNecessary() {
+        backgroundImage = nil
+        switch self.background {
+        case .blank:
+            break
+        case .url(let url):
+            backgroundImageFetchStatus = .fetching
+            DispatchQueue.global(qos: .userInitiated).async {
+                let imageData = try? Data(contentsOf: url)
+                DispatchQueue.main.async { [weak self] in
+                    if self?.emojiArt.background == EmojiArtModel.Background.url(url) {
+                        self?.backgroundImageFetchStatus = .idle
+                        if let imageData = imageData {
+                            self?.backgroundImage = UIImage(data: imageData)
+                        }
+                    }
+                }
+            }
+        case .imageData(let data):
+            backgroundImage = UIImage(data: data)
+        }
+    }
+    
     //MARK: - User Intends
     
     func setBackground(_ background: EmojiArtModel.Background) {
         emojiArt.background = background
+        print("background set to \(background)")
     }
     func addEmoji(_ emoji: String, at location: (x: Int, y: Int), size: CGFloat) {
         emojiArt.addEmoji(emoji, at: location, size: Int(size))
