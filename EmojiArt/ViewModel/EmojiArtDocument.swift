@@ -20,11 +20,28 @@ class EmojiArtDocument: ObservableObject {
         emojiArt = EmojiArtModel()
     }
     
+    private func save(to url: URL) {
+        let thisfunction = "\(String(describing: self)).\(#function)"
+        do {
+            let data = try emojiArt.json()
+            try data.write(to: url)
+        } catch let encodingError where encodingError is EncodingError {
+            print("\(thisfunction) couldn't encode EmojiArt as JSON because \(encodingError.localizedDescription)")
+        } catch {
+            print("\(thisfunction) error = \(error)")
+        }
+    }
+    
     var emojis: [EmojiArtModel.Emoji] { emojiArt.emojis }
+    @Published var selectedEmojis = Set<EmojiArtModel.Emoji>()
+    
     var background: EmojiArtModel.Background { emojiArt.background }
     
+    //MARK: - Background
+
     @Published var backgroundImage: UIImage?
     @Published var backgroundImageFetchStatus = BackgroundImageFetchStatus.idle
+    
     
     enum BackgroundImageFetchStatus {
         case idle
@@ -72,6 +89,13 @@ class EmojiArtDocument: ObservableObject {
     func scaleEmoji(_ emoji: EmojiArtModel.Emoji, by scale: CGFloat) {
         if let index = emojis.index(matching: emoji) {
             emojiArt.emojis[index].size = Int(CGFloat(emojiArt.emojis[index].size) * scale.rounded(.toNearestOrAwayFromZero))
+        }
+    }
+    func selectEmoji(_ emoji: EmojiArtModel.Emoji) {
+        if !selectedEmojis.contains(emoji) {
+            selectedEmojis.insert(emoji)
+        } else {
+            selectedEmojis.remove(emoji)
         }
     }
 }
